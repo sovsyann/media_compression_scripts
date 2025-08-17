@@ -141,7 +141,7 @@ Inside the scripts, you can adjust:
 
 ---
 
-## 🍏 macOS vs 🐧 Linux
+## macOS vs Linux
 
 - Developed & tested on **macOS** (with Homebrew packages).  
 - Works on **Linux** as well, with small differences:  
@@ -159,7 +159,7 @@ Inside the scripts, you can adjust:
 
 ---
 
-## 🎉 Example Workflow
+## Example Workflow
 
 ```bash
 # Optimize vacation folder (images + videos)
