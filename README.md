@@ -1,17 +1,18 @@
-# Media Compression Scripts
+# Media (Photo and Video) Compression Scripts for your home archive
 
-Lightweight shell scripts to **save disk space** by compressing videos and pictures **recursively** while preserving metadata (EXIF, GPS, timestamps).  
+Lightweight shell scripts to **save a lot of disk space** by compressing videos and pictures **recursively** while preserving metadata (EXIF, GPS, timestamps).  
 
-Modern smartphones, cameras, and computers often produce **very large files by default** (e.g. 4K/60fps video, high-resolution JPEGs).  
-These scripts help reclaim disk space with **minimal or no visible quality loss**, making storage and backups more efficient.  
+Modern mobile devices, cameras, and smartphones often produce **very large files by default** (e.g. 4K/60fps video, high-resolution JPEGs) and/or use non-optimal compression. Defult compression of many devices provide best quality, but treat your storage like it is endless. This is even more a problem when it comes to archiving. 
+
+These scripts help reclaim disk space with **minimal or no visible quality loss**, making storage and backups more efficient. Imagine cutting your 1TB media archive at least a half while not sacrifizing quality and preserving important meta data - read on...
 
 ---
 
-## 📌 Scripts Included
+## Scripts Included
 
 - **`pcompress.sh`** → compresses JPEG images  
 - **`vcompress.sh`** → compresses video files  
-- **`vpcompress.sh`** → compresses both images and videos in one pass  
+- **`vpcompress.sh`** → combination of the above - compresses images and videos in one pass  
 
 ---
 
@@ -23,24 +24,24 @@ These scripts help reclaim disk space with **minimal or no visible quality loss*
 
 ---
 
-## 📊 Real-Life Results
+## Real-Life Results
 
 On average test samples:
 
 - **JPEG images**  
-  - Original: 4–8 MB each  
+  - Original: 4–10 MB each  
   - After compression: 1–3 MB each  
   - **≈ 40–70% savings** with no visible quality loss  
 
-- **Videos** (recorded on iPhone / Samsung devices, 1080p–4K)  
+- **Videos** (recorded on iPhone / Samsung or other Android devices, 1080p–4K)  
   - Original: 500 MB (5 min)  
-  - After software CRF compression: 150–200 MB  
+  - After software CRF compression: 150–250 MB  
   - After hardware encoding: 180–220 MB  
   - **≈ 30–70% savings** depending on content and mode  
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 Install these tools before running the scripts:
 
@@ -84,7 +85,7 @@ They work **recursively**, so all subfolders are processed as well.
 
 ---
 
-## 🎛 Video Options
+## Video Options
 
 For **`vcompress.sh`** and **`vpcompress.sh`** you can choose encoding modes:
 
@@ -101,40 +102,42 @@ Examples:
 
 ---
 
-## 📌 Option Notes
+## Option Notes
 
 - **Software (CRF)**  
   - Best quality & efficiency  
-  - Slower (6–8× slower than hardware)  
-  - Recommended for archival  
+  - Slower (6–8× slower than hardware and usually slower than 1x)  
+  - Recommended for archival
+  - Feel free to tune that parameter in the script body
 
 - **Software (bitrate)**  
   - Predictable file size (~5 Mbps target)  
   - Slightly faster than CRF  
-  - May waste space on simple scenes or under-quality on complex ones  
+  - May waste space on simple scenes or under-quality on complex ones
+  - Feel free to tune that parameter in the script body
 
-- **Hardware (`--hw`)**  
-  - Much faster (real-time or faster)  
+- **Mac Hardware Accelerated (`--hw`)**  
+  - Much faster (normally faster than real-time)  
   - Larger files than CRF, slightly lower quality per bitrate  
-  - Great for large batches when speed matters  
+  - Great for large batches when speed matters
 
 ---
 
-## 🔧 Tunable Parameters
+## Tunable Parameters
 
 Inside the scripts, you can adjust:
 
 - **CRF (Constant Rate Factor)**  
-  - Default: `32` (smaller size, slightly lower quality)  
+  - Script Default: `32` (smaller size, slightly lower quality)
   - Lower value = better quality, larger files  
-  - Recommended range: **28–32**  
+  - Recommended range: **26–32** 
 
 - **Bitrate**  
   - Default: `5000k` (≈5 Mbps)  
   - Increase for higher quality (e.g. `8000k`)  
   - Decrease for smaller size (e.g. `3000k`)  
 
-> ⚠️ Tip: Try CRF mode first; adjust if you want finer control.
+> ⚠️ Tip: Try CRF mode first; adjust if you want finer control. CRF mode gives best quality while saving file size. Whant/need to speed up the encoding ~5 times - use hardware acceleration with --hw option: quality will drop a little and expext ~20% more in file size.
 
 ---
 
@@ -147,7 +150,7 @@ Inside the scripts, you can adjust:
 
 ---
 
-## 📌 Other Notes
+## Other Notes
 
 - **Metadata is preserved** (EXIF, GPS, timestamps).  
 - **Files are only replaced if the new version is smaller**.  
@@ -163,6 +166,6 @@ Inside the scripts, you can adjust:
 cd ~/Pictures/Vacation2025
 ./vpcompress.sh
 
-# Fast video-only compression with hardware acceleration
+# Fast video-only compression with hardware acceleration (Mac)
 ./vcompress.sh --hw
 ```
