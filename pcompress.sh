@@ -6,7 +6,7 @@
 # - Displays progress counter and SSIM stats
 #
 # Usage:
-#   ./compress.sh
+#   ./pcompress.sh
 #
 
 # Count total number of JPG/JPEG files
