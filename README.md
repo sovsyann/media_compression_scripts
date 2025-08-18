@@ -2,9 +2,9 @@
 
 Lightweight shell scripts to **save a lot of disk space** by compressing videos and pictures **recursively** while preserving metadata (EXIF, GPS, timestamps).  
 
-Modern mobile devices, cameras, and smartphones often produce **very large files by default** (e.g. 4K/60fps video, high-resolution JPEGs) and/or use non-optimal compression. Defult compression of many devices provide best quality, but treat your storage like it is endless. This is even more a problem when it comes to archiving. 
+Modern mobile devices, cameras, and smartphones often produce **very large files by default** (e.g. 4K/60fps video, high-resolution JPEGs) and/or use non-optimal compression. Default compression of many devices provide best quality, but treat your storage like it is endless. This is even more a problem when it comes to archiving. 
 
-These scripts help reclaim disk space with **minimal or no visible quality loss**, making storage and backups more efficient. Imagine cutting your 1TB media archive at least a half while not sacrifizing quality and preserving important meta data - read on...
+These scripts help reclaim disk space with **minimal or no visible quality loss**, making storage and backups more efficient. Imagine cutting your 1TB media archive at least a half while not sacrificing quality and preserving important meta data - read on...
 
 ---
 
